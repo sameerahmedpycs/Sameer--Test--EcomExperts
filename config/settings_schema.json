@@ -2,7 +2,7 @@
   {
     "name": "theme_info",
     "theme_name": "Dawn",
-    "theme_version": "12.0.0",
+    "theme_version": "13.0.1",
     "theme_author": "Shopify",
     "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes",
     "theme_support_url": "https:\/\/support.shopify.com\/"
@@ -1467,7 +1467,7 @@
     ]
   },
   {
-    "name":"Bundle Functionality",
+    "name": "Bundle Functionality",
     "settings": [
       {
         "type": "paragraph",
@@ -1475,19 +1475,19 @@
       },
       {
         "type": "product",
-        "label":"Conditioned Products",
-        "id":"conditioned_product"
+        "label": "Conditioned Products",
+        "id": "conditioned_product"
       },
       {
-        "type":"textarea",
-        "label":"Specific Variant",
-        "id":"specific_variant",
-        "info":"Copy the Variant title from admin E.g., Black / Medium"
+        "type": "textarea",
+        "label": "Specific Variant",
+        "id": "specific_variant",
+        "info": "Copy the Variant title from admin E.g., Black \/ Medium"
       },
       {
         "type": "product",
-        "label":"Free Product",
-        "id":"free_product"
+        "label": "Free Product",
+        "id": "free_product"
       }
     ]
   }
