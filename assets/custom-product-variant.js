@@ -24,19 +24,25 @@ class TestVariant extends HTMLElement {
 
     }
 
-      updateMedia(){
-       let selectedMedia = this.querySelector('input[name="option[Color]"]:checked');
-            if(selectedMedia){
-               let mediaId = selectedMedia.dataset.mediaid;
-                 if(mediaId){
-                    let imageButton = document.querySelector(`[data-media-id="${mediaId}"]`);
-                    console.log(imageButton);
-                    let mediaGalleryId = imageButton.closest('[data-media-id]').dataset.thumnailId;
-                    console.log("mediaGalleryId",mediaGalleryId);
-                    document.querySelector('media-gallery').setActiveMedia(mediaGalleryId, false);
-                 }
-            }
-        }
+updateMedia() {
+  let selectedMedia = this.querySelector('input[name="option[Color]"]:checked');
+  if (selectedMedia) {
+    let mediaId = selectedMedia.dataset.mediaid;
+    if (mediaId) {
+      let imageButton = document.querySelector(`[data-media-id="${mediaId}"]`);
+      console.log(imageButton); // Debugging
+      let mediaGalleryId = imageButton.closest('[data-media-id]').dataset.thumbnailId; // Corrected typo here
+      console.log("mediaGalleryId", mediaGalleryId); // Debugging
+      let mediaGalleryElement = document.querySelector('media-gallery');
+      if (mediaGalleryElement && mediaGalleryElement.setActiveMedia) {
+        mediaGalleryElement.setActiveMedia(mediaGalleryId, false);
+      } else {
+        console.error('Media gallery element not found or setActiveMedia method not available.');
+      }
+    }
+  }
+}
+
 
         updateAvailability(selections){
         // console.log(selections);
