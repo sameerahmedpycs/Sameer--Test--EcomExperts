@@ -11,22 +11,7 @@ data-url="{{ product.url }}"
 >
 
 
- {%- if picker_type == 'swatch' -%}
-        <fieldset class="js product-form__input product-form__input--swatch">
-          <legend class="form__label">
-            {{ option.name }}:
-            <span data-selected-swatch-value="{{ option.name }}">
-              {{- option.selected_value -}}
-            </span>
-          </legend>
-          {% render 'product-variant-options',
-            product: product,
-            option: option,
-            block: block,
-            picker_type: picker_type
-          %}
-        </fieldset>
-      {%- elsif picker_type == 'button' -%}
+
         <fieldset class="js product-form__input product-form__input--pill" {%- if option.name == 'Color' or option.name == 'color' -%}style="display:block;" {% else %} style="display:none;" {%- endif -%}>
           <legend class="form__label">{{ option.name }}</legend>
           {% render 'product-variant-options',
@@ -36,7 +21,7 @@ data-url="{{ product.url }}"
             picker_type: picker_type
           %}
         </fieldset>
-{% endif %}
+
 
   
 </div>
