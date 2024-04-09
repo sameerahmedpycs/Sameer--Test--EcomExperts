@@ -20,7 +20,8 @@ class TestVariant extends HTMLElement {
 
       updatePrice(data){
         document.querySelector(".price__container [data-compareprice]").innerHTML = data.currentVariant.compare_at_price == null ? '' : Shopify.formatMoney(data.currentVariant.compare_at_price);
-        // document.querySelector(".price__container [data-price]").innerHTML = Shopify.formatMoney(data.currentVariant.price);
+        document.querySelector(".price__container [data-price]").innerHTML = Shopify.formatMoney(data.currentVariant.price, "${{amount}} CAD");
+
     }
 
       updateMedia(){
