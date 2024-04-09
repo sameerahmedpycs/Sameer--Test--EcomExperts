@@ -9,10 +9,12 @@ data-url="{{ product.url }}"
 {% endif %}
 {{ block.shopify_attributes }}
 >
+  <fieldset class="js product-form__input">
+    <legend class="form__label">{{ option.name }}</legend>
+    {% render 'product-variant-options', product: product, option: option, picker_type: picker_type %}
+  </fieldset>
 
-
-
-        <fieldset class="js product-form__input product-form__input--pill" {%- if option.name == 'Color' or option.name == 'color' -%}style="display:block;" {% else %} style="display:none;" {%- endif -%}>
+  <fieldset class="js product-form__input product-form__input--pill" {%- if option.name == 'Color' or option.name == 'color' -%}style="display:block;" {% else %} style="display:none;" {%- endif -%}>
           <legend class="form__label">{{ option.name }}</legend>
           {% render 'product-variant-options',
             product: product,
@@ -21,7 +23,6 @@ data-url="{{ product.url }}"
             picker_type: picker_type
           %}
         </fieldset>
-
 
   
 </div>
