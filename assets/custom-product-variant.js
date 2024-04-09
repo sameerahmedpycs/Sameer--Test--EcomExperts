@@ -23,19 +23,19 @@ class TestVariant extends HTMLElement {
     //     document.querySelector(".price__container [data-price]").innerHTML = Shopify.formatMoney(data.currentVariant.price);
     // }
 
-      updateMedia(){
-       let selectedMedia = this.querySelector('input[name="option[Color]"]:checked');
-            if(selectedMedia){
-               let mediaId = selectedMedia.dataset.mediaid;
-                 if(mediaId){
-                    let imageButton = document.querySelector(`[data-media-id="${mediaId}"]`);
-                    // console.log(imageButton);
-                    let mediaGalleryId = imageButton.closest('[data-media-id]').dataset.thumnailId;
-                    // console.log("mediaGalleryId",mediaGalleryId);
-                    document.querySelector('media-gallery').setActiveMedia(mediaGalleryId, false);
-                 }
-            }
-        }
+      // updateMedia(){
+      //  let selectedMedia = this.querySelector('input[name="option[Color]"]:checked');
+      //       if(selectedMedia){
+      //          let mediaId = selectedMedia.dataset.mediaid;
+      //            if(mediaId){
+      //               let imageButton = document.querySelector(`[data-media-id="${mediaId}"]`);
+      //               // console.log(imageButton);
+      //               let mediaGalleryId = imageButton.closest('[data-media-id]').dataset.thumnailId;
+      //               // console.log("mediaGalleryId",mediaGalleryId);
+      //               document.querySelector('media-gallery').setActiveMedia(mediaGalleryId, false);
+      //            }
+      //       }
+      //   }
 
         updateAvailability(selections){
         // console.log(selections);
