@@ -24,13 +24,19 @@ class TestVariant extends HTMLElement {
 
     }
 
-     document.querySelectorAll('input[name="option[Color]"]').forEach(input => {
-  input.addEventListener('change', (event) => {
-    // Assuming `this` is correctly bound or you have a way to access the relevant instance
-    this.filterMedia();
-  });
-});
-
+      updateMedia(){
+       let selectedMedia = this.querySelector('input[name="option[Color]"]:checked');
+            if(selectedMedia){
+               let mediaId = selectedMedia.dataset.mediaid;
+                 if(mediaId){
+                    let imageButton = document.querySelector(`[data-media-id="${mediaId}"]`);
+                    console.log(imageButton);
+                    let mediaGalleryId = imageButton.closest('[data-media-id]').dataset.thumnailId;
+                    console.log("mediaGalleryId",mediaGalleryId);
+                    document.querySelector('media-gallery').setActiveMedia(mediaGalleryId, false);
+                 }
+            }
+        }
 
         updateAvailability(selections){
         // console.log(selections);
