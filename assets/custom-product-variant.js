@@ -24,24 +24,12 @@ class TestVariant extends HTMLElement {
 
     }
 
-updateMedia() {
-  let selectedMedia = this.querySelector('input[name="option[Color]"]:checked');
-  if (selectedMedia) {
-    let mediaId = selectedMedia.dataset.mediaid;
-    if (mediaId) {
-      let imageButton = document.querySelector(`[data-media-id="${mediaId}"]`);
-      console.log(imageButton); // Debugging
-      let mediaGalleryId = imageButton.closest('[data-media-id]').dataset.thumbnailId; // Corrected typo here
-      console.log("mediaGalleryId", mediaGalleryId); // Debugging
-      let mediaGalleryElement = document.querySelector('media-gallery');
-      if (mediaGalleryElement && mediaGalleryElement.setActiveMedia) {
-        mediaGalleryElement.setActiveMedia(mediaGalleryId, false);
-      } else {
-        console.error('Media gallery element not found or setActiveMedia method not available.');
-      }
-    }
-  }
-}
+     document.querySelectorAll('input[name="option[Color]"]').forEach(input => {
+  input.addEventListener('change', (event) => {
+    // Assuming `this` is correctly bound or you have a way to access the relevant instance
+    this.filterMedia();
+  });
+});
 
 
         updateAvailability(selections){
