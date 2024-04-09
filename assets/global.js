@@ -979,14 +979,14 @@ class VariantSelects extends HTMLElement {
 
   updateMasterId() {
     this.currentVariant = this.getVariantData().find((variant) => {
-      return !variant.options
-        .map((option, index) => {
-          return this.options[index] === option;
-        })
-        .includes(false);
+      	return !variant.options.map((option, index) => {
+        return this.options[index] === option;
+      }).includes(false);
     });
   }
 
+
+  
   updateMedia() {
     if (!this.currentVariant) return;
     if (!this.currentVariant.featured_media) return;
