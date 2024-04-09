@@ -1008,26 +1008,43 @@ class VariantSelects extends HTMLElement {
   }
 
 
-   filterMedia() {
- 
-  document.querySelectorAll('[thumbnail-color]').forEach(function(el) {
-    el.style.display = 'none';
-  });
+filterMedia() {
+    // scroll thumbnail slider to the beggining
+    document.querySelector("#m-slider").scrollTo(0, 0);
 
-  var selected_variant = this.currentVariant.featured_media.alt;
+    if (
+      this.currentVariant.featured_image != null &&
+      this.currentVariant.featured_media.alt != null
+    ) {
+      // hide all thumbnails
+      document
+        .querySelectorAll("[data-thumbnail-color]")
+        .forEach(function (element) {
+          element.style.display = "none";
+        });
+      //show thumbnails for selected variant
+      var selected_variant = this.currentVariant.featured_media.alt;
 
+      document
+        .querySelectorAll(`[data-thumbnail-color*="${selected_variant}"]`)
+        .forEach(function (element) {
+          element.style.display = "";
+        });
 
-  var selected_attribute = '[thumbnail-color="' + selected_variant + '"]';
-
-
-  var matchingElements = document.querySelectorAll(selected_attribute);
-  if (matchingElements.length > 0) {
-
-    matchingElements.forEach(function(el) {
-      el.style.display = '';
-    });
+      document
+        .querySelectorAll('[data-thumbnail-color="all"]')
+        .forEach(function (element) {
+          element.style.display = "";
+        });
+    } else {
+      // show all thumbnails
+      document
+        .querySelectorAll("[data-thumbnail-color]")
+        .forEach(function (element) {
+          element.style.display = "";
+        });
+    }
   }
-}
   updateShareUrl() {
     const shareButton = document.getElementById(`Share-${this.dataset.section}`);
     if (!shareButton || !shareButton.updateUrl) return;
