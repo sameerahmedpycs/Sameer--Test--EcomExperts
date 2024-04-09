@@ -14,7 +14,7 @@ class TestVariant extends HTMLElement {
         }
         let selections = this.currentSelections();
         this.updatePrice(selections);
-        this.updateMedia();
+        // this.updateMedia();
         this.updateAvailability(selections);
       }
 
