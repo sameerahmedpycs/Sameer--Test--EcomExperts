@@ -8,10 +8,10 @@ class TestVariant extends HTMLElement {
         this.addEventListener('change', this.onVariantChange); // when variant changes, update the data
         this.preventATC(); // keep the add to cart un selected by default
     }
-    onVariantChange(event) {
-        if(event.target.name == 'option[Color]'){
-            this.querySelector('select[name="options[Size]"]').options[0].selected = true;
-        }
+    // onVariantChange(event) {
+    //     if(event.target.name == 'option[Color]'){
+    //         this.querySelector('select[name="options[Size]"]').options[0].selected = true;
+    //     }
         let selections = this.currentSelections();
         this.updatePrice(selections);
         this.updateMedia();
