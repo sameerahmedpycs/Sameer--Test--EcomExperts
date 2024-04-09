@@ -1027,6 +1027,18 @@ class VariantSelects extends HTMLElement {
       el.style.display = '';
     });
   }
+
+// Inside filterMedia, after finding matching elements
+if (matchingElements.length > 0) {
+  const mediaGalleryElement = document.querySelector('media-gallery');
+  if (mediaGalleryElement) {
+    // Assuming mediaId is retrievable or you set it accordingly
+    const mediaId = matchingElements[0].dataset.mediaId;
+    mediaGalleryElement.setActiveMedia(mediaId, false);
+  }
+}
+
+     
      
 }
   updateShareUrl() {
