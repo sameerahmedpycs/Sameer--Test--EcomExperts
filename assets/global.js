@@ -1027,6 +1027,9 @@ class VariantSelects extends HTMLElement {
       el.style.display = '';
     });
   }
+     console.log(selected_variant);
+console.log(selected_attribute);
+
 }
   updateShareUrl() {
     const shareButton = document.getElementById(`Share-${this.dataset.section}`);
