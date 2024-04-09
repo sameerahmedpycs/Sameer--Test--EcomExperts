@@ -24,20 +24,38 @@ class TestVariant extends HTMLElement {
 
     }
 
-      updateMedia(){
-       let selectedMedia = this.querySelector('input[name="option[Color]"]:checked');
-            if(selectedMedia){
-               let mediaId = selectedMedia.dataset.mediaid;
-                 if(mediaId){
-                    let imageButton = document.querySelector(`[data-media-id="${mediaId}"]`);
-                    console.log(imageButton);
-                    let mediaGalleryId = imageButton.closest('[data-media-id]').dataset.thumnailId;
-                    console.log("mediaGalleryId",mediaGalleryId);
-                    document.querySelector('media-gallery').setActiveMedia(mediaGalleryId, true);
-                 }
-            }
-        }
+      // updateMedia(){
+      //  let selectedMedia = this.querySelector('input[name="option[Color]"]:checked');
+      //       if(selectedMedia){
+      //          let mediaId = selectedMedia.dataset.mediaid;
+      //            if(mediaId){
+      //               let imageButton = document.querySelector(`[data-media-id="${mediaId}"]`);
+      //               console.log(imageButton);
+      //               let mediaGalleryId = imageButton.closest('[data-media-id]').dataset.thumnailId;
+      //               console.log("mediaGalleryId",mediaGalleryId);
+      //               document.querySelector('media-gallery').setActiveMedia(mediaGalleryId, false);
+      //            }
+      //       }
+      //   }
 
+
+
+  updateMedia() {
+    if (!this.currentVariant) return;
+    if (!this.currentVariant.featured_media) return;
+
+    const mediaGalleries = document.querySelectorAll(`[id^="MediaGallery-${this.dataset.section}"]`);
+    mediaGalleries.forEach((mediaGallery) =>
+      mediaGallery.setActiveMedia(`${this.dataset.section}-${this.currentVariant.featured_media.id}`, true)
+    );
+
+    const modalContent = document.querySelector(`#ProductModal-${this.dataset.section} .product-media-modal__content`);
+    if (!modalContent) return;
+    const newMediaModal = modalContent.querySelector(`[data-media-id="${this.currentVariant.featured_media.id}"]`);
+    modalContent.prepend(newMediaModal);
+  }
+
+  
         updateAvailability(selections){
         // console.log(selections);
         this.atcForm.querySelector('input[name="id"]').value = selections.currentVariant.id; 
