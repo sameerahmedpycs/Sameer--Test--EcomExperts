@@ -1,6 +1,6 @@
 {% comment %} Swatchs for product variant {% endcomment %}
 <div
-id="variant-selects-{{ section.id }}"
+id="variant-radios-{{ section.id }}"
 class="no-js-hidden"
 data-section="{{ section.id }}"
 data-url="{{ product.url }}"
@@ -13,16 +13,6 @@ data-url="{{ product.url }}"
     <legend class="form__label">{{ option.name }}</legend>
     {% render 'product-variant-options', product: product, option: option, picker_type: picker_type %}
   </fieldset>
-
-  <!-- <fieldset class="js product-form__input product-form__input--pill" {%- if option.name == 'Color' or option.name == 'color' -%}style="display:block;" {% else %} style="display:none;" {%- endif -%}>
-          <legend class="form__label">{{ option.name }}</legend>
-          {% render 'product-variant-options',
-            product: product,
-            option: option,
-            block: block,
-            picker_type: picker_type
-          %}
-        </fieldset> -->
 
   
 </div>
