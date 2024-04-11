@@ -11,7 +11,7 @@
 {% endcomment %}
 {% comment %} Creating Custom Variant options {% endcomment %}
 {% unless product.has_only_default_variant %} 
-<test-variant>
+<variant-selects>
 
         {% for option in product.options_with_values %}  
             {% assign optionName = option.name | downcase %}
@@ -25,5 +25,5 @@
         {{ product.variants | json }}
         </script>
    
-</test-variant>
+</variant-selects>
  {% endunless %} 
