@@ -29,11 +29,11 @@ class TestVariant extends HTMLElement {
             if(selectedMedia){
                let mediaId = selectedMedia.dataset.mediaid;
                  if(mediaId){
-                    let imageButton = document.querySelector('[data-media-id="${mediaId}"]');
+                    let imageButton = document.querySelector(`[data-media-id="${mediaId}"]`);
                     console.log(imageButton);
                     let mediaGalleryId = imageButton.closest('[data-media-id]').dataset.thumnailId;
                     console.log("mediaGalleryId",mediaGalleryId);
-                    document.querySelector('media-gallery').setActiveMedia(mediaGalleryId, true);
+                    document.querySelector('media-gallery').setActiveMedia(mediaGalleryId, false);
                  }
             }
         }
