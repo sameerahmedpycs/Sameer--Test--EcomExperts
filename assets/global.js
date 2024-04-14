@@ -1223,7 +1223,7 @@ console.log(selected_attribute);
   }
 }
 
-customElements.define('variant-selects', VariantSelects);
+customElements.define('test-variant', VariantSelects);
 
 class VariantRadios extends VariantSelects {
   constructor() {
