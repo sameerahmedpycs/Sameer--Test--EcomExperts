@@ -1008,28 +1008,28 @@ class VariantSelects extends HTMLElement {
   }
 
 
-   filterMedia() {
+//    filterMedia() {
  
-  document.querySelectorAll('[thumbnail-color]').forEach(function(el) {
-    el.style.display = 'none';
-  });
+//   document.querySelectorAll('[thumbnail-color]').forEach(function(el) {
+//     el.style.display = 'none';
+//   });
 
-  var selected_variant = this.currentVariant.featured_media.alt;
-console.log(selected_variant);
+//   var selected_variant = this.currentVariant.featured_media.alt;
+// console.log(selected_variant);
 
-  var selected_attribute = '[thumbnail-color="' + selected_variant + '"]';
-console.log(selected_attribute);
+//   var selected_attribute = '[thumbnail-color="' + selected_variant + '"]';
+// console.log(selected_attribute);
 
-  var matchingElements = document.querySelectorAll(selected_attribute);
-     console.log(matchingElements);
-  if (matchingElements.length > 0) {
+//   var matchingElements = document.querySelectorAll(selected_attribute);
+//      console.log(matchingElements);
+//   if (matchingElements.length > 0) {
 
-    matchingElements.forEach(function(el) {
-      el.style.display = '';
-    });
-  }
+//     matchingElements.forEach(function(el) {
+//       el.style.display = '';
+//     });
+//   }
      
-}
+// }
   updateShareUrl() {
     const shareButton = document.getElementById(`Share-${this.dataset.section}`);
     if (!shareButton || !shareButton.updateUrl) return;
