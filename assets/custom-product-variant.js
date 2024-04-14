@@ -34,8 +34,8 @@ class TestVariant extends HTMLElement {
     el.style.display = 'none';
   });
 
-//   var selected_variant = this.currentVariant.featured_media.alt;
-// console.log(selected_variant);
+  var selected_variant = this.currentVariant.featured_media.alt;
+console.log(selected_variant);
 
   var selected_attribute = '[thumbnail-color="' + selected_variant + '"]';
 console.log(selected_attribute);
