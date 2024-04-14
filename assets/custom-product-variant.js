@@ -15,6 +15,7 @@ class TestVariant extends HTMLElement {
         let selections = this.currentSelections();
         this.updatePrice(selections);
         this.updateMedia();
+      this.filterMedia();
         this.updateAvailability(selections);
       }
 
@@ -23,7 +24,28 @@ class TestVariant extends HTMLElement {
         document.querySelector(".price__container [data-price]").innerHTML = Shopify.formatMoney(data.currentVariant.price, "${{amount}} CAD");
 
     }
+   filterMedia() {
+ 
+  document.querySelectorAll('[thumbnail-color]').forEach(function(el) {
+    el.style.display = 'none';
+  });
 
+  var selected_variant = this.currentVariant.featured_media.alt;
+console.log(selected_variant);
+
+  var selected_attribute = '[thumbnail-color="' + selected_variant + '"]';
+console.log(selected_attribute);
+
+  var matchingElements = document.querySelectorAll(selected_attribute);
+     console.log(matchingElements);
+  if (matchingElements.length > 0) {
+
+    matchingElements.forEach(function(el) {
+      el.style.display = '';
+    });
+  }
+     
+}
       updateMedia(){
        let selectedMedia = this.querySelector('input[name="option[Color]"]:checked');
             if(selectedMedia){
