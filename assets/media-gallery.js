@@ -63,6 +63,7 @@ if (!customElements.get('media-gallery')) {
       }
 
       setActiveThumbnail(thumbnail) {
+          console.log(thumbnail);
         if (!this.elements.thumbnails || !thumbnail) return;
 
         this.elements.thumbnails
