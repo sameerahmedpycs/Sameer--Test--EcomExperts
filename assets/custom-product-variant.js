@@ -24,48 +24,19 @@ class TestVariant extends HTMLElement {
 
     }
 
- updateMedia() {
-    let selectedMedia = this.querySelector('input[name="option[Color]"]:checked');
-    if (selectedMedia) {
-        let mediaId = selectedMedia.dataset.mediaid;
-        if (mediaId) {
-            let imageButton = document.querySelector(`[data-media-id="${mediaId}"]`);
-            console.log(imageButton);
-            let mediaGalleryId = imageButton.closest('[data-media-id]').dataset.thumnailId;
-            console.log("mediaGalleryId", mediaGalleryId);
-            document.querySelector('media-gallery').setActiveMedia(mediaGalleryId, false);
+      updateMedia(){
+       let selectedMedia = this.querySelector('input[name="option[Color]"]:checked');
+            if(selectedMedia){
+               let mediaId = selectedMedia.dataset.mediaid;
+                 if(mediaId){
+                    let imageButton = document.querySelector(`[data-media-id="${mediaId}"]`);
+                    console.log(imageButton);
+                    let mediaGalleryId = imageButton.closest('[data-media-id]').dataset.thumnailId;
+                    console.log("mediaGalleryId",mediaGalleryId);
+                    document.querySelector('media-gallery').setActiveMedia(mediaGalleryId, false);
+                 }
+            }
         }
-    }
-    this.filterMedia();
-}
-
-filterMedia() {
-    // Hide all thumbnail-color elements
-    document.querySelectorAll('[thumbnail-color]').forEach(function(el) {
-        el.style.display = 'none';
-    });
-
-    // Assuming currentVariant is available on `this`
-    if (!this.currentVariant || !this.currentVariant.featured_media || !this.currentVariant.featured_media.alt) {
-        console.error('Current variant or featured media is undefined');
-        return;
-    }
-
-    var selected_variant = this.currentVariant.featured_media.alt;
-    console.log(selected_variant);
-
-    var selected_attribute = '[thumbnail-color="' + selected_variant + '"]';
-    console.log(selected_attribute);
-
-    var matchingElements = document.querySelectorAll(selected_attribute);
-    console.log(matchingElements);
-    if (matchingElements.length > 0) {
-        matchingElements.forEach(function(el) {
-            el.style.display = '';
-        });
-    }
-}
-
 
         updateAvailability(selections){
         // console.log(selections);
