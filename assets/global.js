@@ -1008,28 +1008,41 @@ class VariantSelects extends HTMLElement {
   }
 
 
-   filterMedia() {
- 
-  document.querySelectorAll('[thumbnail-color]').forEach(function(el) {
-    el.style.display = 'none';
-  });
+document.addEventListener('DOMContentLoaded', function() {
+    const variantRadios = document.getElementById('variant-radios-{{ section.id }}');
+    if (!variantRadios) return;
 
-  var selected_variant = this.currentVariant.featured_media.alt;
-console.log(selected_variant);
-
-  var selected_attribute = '[thumbnail-color="' + selected_variant + '"]';
-console.log(selected_attribute);
-
-  var matchingElements = document.querySelectorAll(selected_attribute);
-     console.log(matchingElements);
-  if (matchingElements.length > 0) {
-
-    matchingElements.forEach(function(el) {
-      el.style.display = '';
+    // Listen for changes on color options
+    variantRadios.addEventListener('change', function(event) {
+        if (event.target.name === 'option[Color]') {
+            updateMedia.call(this);
+            filterMedia.call(this);
+        }
     });
-  }
-     
-}
+
+    function updateMedia() {
+        let selectedMedia = this.querySelector('input[name="option[Color]"]:checked');
+        if (selectedMedia) {
+            let mediaId = selectedMedia.dataset.mediaid;
+            if (mediaId) {
+                document.querySelector('media-gallery').setActiveMedia(mediaId, false);
+            }
+        }
+    }
+
+    function filterMedia() {
+        const selectedMedia = this.querySelector('input[name="option[Color]"]:checked');
+        if (!selectedMedia) return;
+        
+        const thumbnailColor = selectedMedia.dataset.color; // Ensure this is set correctly in your HTML
+        const thumbnails = document.querySelectorAll('[thumbnail-color]');
+        thumbnails.forEach(el => el.style.display = 'none');
+
+        const matchingElements = document.querySelectorAll(`[thumbnail-color="${thumbnailColor}"]`);
+        matchingElements.forEach(el => el.style.display = '');
+    }
+});
+
   updateShareUrl() {
     const shareButton = document.getElementById(`Share-${this.dataset.section}`);
     if (!shareButton || !shareButton.updateUrl) return;
