@@ -10,7 +10,7 @@
   {% render 'custom-product-variant', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
 {% comment %} Creating Custom Variant options {% endcomment %}
-<test-variant>
+<variant-selects>
 {% unless product.has_only_default_variant %} 
         {% for option in product.options_with_values %}  
             {% assign optionName = option.name | downcase %}
@@ -24,4 +24,4 @@
         {{ product.variants | json }}
         </script>
     {% endunless %} 
-</test-variant>
+</variant-selects>
