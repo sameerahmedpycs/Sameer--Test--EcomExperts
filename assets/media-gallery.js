@@ -35,7 +35,7 @@ if (!customElements.get('media-gallery')) {
           element.classList.remove('is-active');
         });
         activeMedia.classList.add('is-active');
-
+console.log(activeMedia);
         if (prepend) {
           activeMedia.parentElement.prepend(activeMedia);
           if (this.elements.thumbnails) {
@@ -63,7 +63,7 @@ if (!customElements.get('media-gallery')) {
       }
 
       setActiveThumbnail(thumbnail) {
-          console.log(thumbnail);
+        
         if (!this.elements.thumbnails || !thumbnail) return;
 
         this.elements.thumbnails
