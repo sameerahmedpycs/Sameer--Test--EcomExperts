@@ -32,7 +32,7 @@ class TestVariant extends HTMLElement {
                     let imageButton = document.querySelector(`[data-media-id="${mediaId}"]`);
                     // console.log(imageButton);
                     let mediaGalleryId = imageButton.closest('[data-media-id]').dataset.thumnailId;
-                    console.log("mediaGalleryId",mediaGalleryId);
+                    // console.log("mediaGalleryId",mediaGalleryId);
                     document.querySelector('media-gallery').setActiveMedia(mediaGalleryId, false);
                  }
             }
