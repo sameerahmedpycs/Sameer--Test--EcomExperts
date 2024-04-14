@@ -1015,7 +1015,7 @@ class VariantSelects extends HTMLElement {
   });
 
   var selected_variant = this.currentVariant.featured_media.alt;
-console.log(selected_variant);
+
 
   var selected_attribute = '[thumbnail-color="' + selected_variant + '"]';
 
