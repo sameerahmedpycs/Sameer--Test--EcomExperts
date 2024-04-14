@@ -82,4 +82,4 @@ class TestVariant extends HTMLElement {
     }
 
 }
-customElements.define('variant-selects', TestVariant);
+customElements.define('test-variant', TestVariant);
