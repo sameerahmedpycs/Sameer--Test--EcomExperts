@@ -42,7 +42,7 @@ console.log(selected_attribute);
 
   var matchingElements = document.querySelectorAll(selected_attribute);
      console.log(matchingElements);
-  if (matchingElements.length > 0) {
+  if (matchingElements.length > 1) {
 
     matchingElements.forEach(function(el) {
       el.style.display = '';
