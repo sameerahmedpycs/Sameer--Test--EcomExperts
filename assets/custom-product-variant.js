@@ -15,31 +15,11 @@ class TestVariant extends HTMLElement {
         let selections = this.currentSelections();
         this.updatePrice(selections);
         this.updateMedia();
-      this.filterMedia();
+      this.filterMedia(selections);
         this.updateAvailability(selections);
       }
 
-  onVariantChange() {
-    console.log('variant changed');
-    this.updateOptions();
-    this.updateMasterId();
-    this.toggleAddButton(true, '', false);
-    this.updatePickupAvailability();
-    this.removeErrorMessage();
-    this.updateVariantStatuses();
 
-    if (!this.currentVariant) {
-      this.toggleAddButton(true, '', true);
-      this.setUnavailable();
-    } else {
-      this.updateMedia();
-      this.updateURL();
-       this.filterMedia();
-      this.updateVariantInput();
-      this.renderProductInfo();
-      this.updateShareUrl();
-    }
-  }
 
 
   
