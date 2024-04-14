@@ -1008,35 +1008,28 @@ class VariantSelects extends HTMLElement {
   }
 
 
- filterMedia() {
-  // Ensure the current variant and its featured media are defined
-  if (!this.currentVariant || !this.currentVariant.featured_media || !this.currentVariant.featured_media.alt) {
-    console.error('Current variant or featured media is undefined');
-    return;
-  }
-
-  // Hide all elements
+   filterMedia() {
+ 
   document.querySelectorAll('[thumbnail-color]').forEach(function(el) {
     el.style.display = 'none';
   });
 
   var selected_variant = this.currentVariant.featured_media.alt;
-  var selected_attribute = '[thumbnail-color="' + selected_variant + '"]';
+console.log(selected_variant);
 
-  // Show matching elements
+  var selected_attribute = '[thumbnail-color="' + selected_variant + '"]';
+console.log(selected_attribute);
+
   var matchingElements = document.querySelectorAll(selected_attribute);
+     console.log(matchingElements);
   if (matchingElements.length > 0) {
+
     matchingElements.forEach(function(el) {
       el.style.display = '';
     });
-  } else {
-    console.error('No elements found matching the selected variant');
   }
+     
 }
-
-// Example of how you might bind this function to a variant change event
-document.getElementById('variant-selector').addEventListener('change', filterMedia.bind(context));
-
   updateShareUrl() {
     const shareButton = document.getElementById(`Share-${this.dataset.section}`);
     if (!shareButton || !shareButton.updateUrl) return;
